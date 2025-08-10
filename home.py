@@ -1,6 +1,6 @@
 import tkinter as tk
 
-class Home:
+class Home(tk.Frame):
     def __init__(self, controller, parent, buttons):
         super().__init__(parent)
         self.controller=controller
