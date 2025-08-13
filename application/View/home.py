@@ -1,9 +1,8 @@
 import tkinter as tk
-import subprocess
-
-class buttonFactory:
-    def buttonBuild(self, root, detailsButton, font = ("Arial", 16, "Bold"), width = 10):
-        return tk.Button(root, text=detailsButton.name, width=10, command=lambda:subprocess.Popen(["python", detailsButton.path]))
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'Controller')))
+from buttonFactory import buttonFactory
 
 class Home(tk.Frame):
     def __init__(self, controller, parent, buttons):
@@ -15,5 +14,5 @@ class Home(tk.Frame):
         global counter
         counter = 1
         for i in buttons:
-            i.pack(pady = counter * 5)
+            buttonFactory().buttonBuild(controller, i).pack(pady = counter * 5)
             counter+= 1

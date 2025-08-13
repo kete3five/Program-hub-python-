@@ -22,8 +22,7 @@ class programHub(tk.Tk):
         for obj in (Home, otherFrame):
             page_name=obj.__name__
             if page_name == "Home":
-                bf = buttonFactory()
-                frame= obj(parent=container,controller=self,buttons=[bf.buttonBuild(self, Button("ToSomething", "something.py"))])
+                frame= obj(parent=container,controller=self,buttons=[Button("ToSomething", "something.py")])
             else:
                 frame= obj(parent=container,controller=self)
             self.frames[page_name]=frame
