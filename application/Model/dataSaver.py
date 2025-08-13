@@ -5,9 +5,9 @@ class dataSaver:
     def __init__(self):
         self.buttons = []
     def update(self, name, destination):
-        with open("data.csv","w",newline="") as f:
+        with open("data.csv","a",newline="") as f:
             writer = csv.writer(f, delimiter=";")
-            writer.writerows((name, destination))
+            writer.writerow([name, destination])
     def load(self):
         with open("data.csv","r") as f:
             reader = csv.reader(f, delimiter=";")
