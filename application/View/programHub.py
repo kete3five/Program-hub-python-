@@ -7,22 +7,22 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'M
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'Controller')))
 from button import Button
 from buttonFactory import buttonFactory
+from dataSaver import dataSaver
 
 class programHub(tk.Tk):
     def __init__(self):
         super().__init__()
         self.title("Program Hub")
         self.geometry("450x450")
-
+        dt = dataSaver()
         container = tk.Frame(self)
         container.pack(fill="both",expand=True)
- 
+        dt.load()
         self.frames={}  
-
         for obj in (Home, otherFrame):
             page_name=obj.__name__
             if page_name == "Home":
-                frame= obj(parent=container,controller=self,buttons=[Button("ToSomething", "something.py")])
+                frame= obj(parent=container,controller=self,buttons=dt.buttons)
             else:
                 frame= obj(parent=container,controller=self)
             self.frames[page_name]=frame

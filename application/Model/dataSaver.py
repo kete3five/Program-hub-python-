@@ -12,4 +12,5 @@ class dataSaver:
         with open("data.csv","r") as f:
             reader = csv.reader(f, delimiter=";")
             for i,j in reader:
-                self.buttons.append(Button(i, j))
+                if Button(i, j) not in self.buttons:
+                    self.buttons.append(Button(i, j))
