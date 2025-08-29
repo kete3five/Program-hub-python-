@@ -28,3 +28,11 @@ class dataSaver:
                     self.buttons.append(Button(name,path))
                 else:
                     flag = 0
+    #deleting lines from the file
+    def deleteFromFile(self, toDeleteName):
+        print(toDeleteName)
+        with open("data.csv", "w", newline="") as f:
+            writer = csv.writer(f, delimiter=";")
+            for i in range(0, len(self.buttons)):
+                if i != toDeleteName:
+                    writer.writerow([self.buttons[i].name, self.buttons[i].path])

@@ -24,13 +24,13 @@ class programHub(tk.Tk):
         self.frames={}
         self.createFrames()
         self.show_frame("Home")
-         
+    #showing the frames   
     def show_frame(self,frame_name):
         dt.load()
         self.createFrames()
         frame=self.frames[frame_name]
         frame.tkraise()
-
+    #rendering the frames
     def createFrames(self):       
         for obj in (Home, addProject):
             page_name=obj.__name__
