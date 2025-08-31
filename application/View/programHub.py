@@ -14,7 +14,7 @@ class programHub(tk.Tk):
     def __init__(self):
         super().__init__()
         self.title("Program Hub")
-        self.geometry("450x450")
+        self.geometry("800x600")
         global dt
         dt = dataSaver.dataSaver()
         global container
