@@ -9,6 +9,7 @@ from button import Button
 from buttonFactory import buttonFactory
 import dataSaver
 from addProjects import addProject
+from functionTPFrame import functionTPFrame
 
 class programHub(tk.Tk):
     def __init__(self):
@@ -32,7 +33,7 @@ class programHub(tk.Tk):
         frame.tkraise()
     #rendering the frames
     def createFrames(self):       
-        for obj in (Home, addProject):
+        for obj in (Home, addProject, functionTPFrame):
             page_name=obj.__name__
             if page_name == "Home":
                 frame= obj(parent=container,controller=self,buttons=dt.buttons)

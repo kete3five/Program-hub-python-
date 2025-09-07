@@ -12,6 +12,7 @@ class Home(tk.Frame):
         
         tk.Label(self,text="Program Hub",font=("Arial",18)).pack(pady=10)
         tk.Button(self,text="add project",command=lambda: self.controller.show_frame("addProject")).pack(pady=10)
+        tk.Button(self,text="View functions", command=lambda: self.controller.show_frame("functionTPFrame")).pack(pady=10)
 
         global counter
         counter = 1
