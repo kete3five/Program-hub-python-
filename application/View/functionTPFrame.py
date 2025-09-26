@@ -1,33 +1,17 @@
 import tkinter as tk
 import functionToPlot
 import graphfile
+import entriesClass
 
 class functionTPFrame(tk.Frame):
     def __init__(self, parent, controller):
         super().__init__(parent)
+        self.entryGraphs = []
+        self.graphs = []
         self.functions = []
-        self.nameText = tk.Label(self, text="Please enter the function you would like to visualize")
-        self.nameText.pack(pady=5)
-        self.task_entryFunc = tk.Entry(self, width=25,font=("Arial",12,))
-        self.task_entryFunc.pack(pady=10)
-        self.nameText1 = tk.Label(self, text="Please enter the range of your function")
-        self.nameText1.pack(pady=5)
-        self.task_entryRange = tk.Entry(self, width=25,font=("Arial",12,))
-        self.task_entryRange.pack(pady=10)
-        self.namecolor = tk.Label(self, text="Please enter the colour of your desired function")
-        self.namecolor.pack(pady=5)
-        self.task_entryColor = tk.Entry(self, width=25,font=("Arial",12,))
-        self.task_entryColor.pack(pady=10)
-        self.namewidth = tk.Label(self, text="Please enter the width of the lines of your desired function")
-        self.namewidth.pack(pady=5)
-        self.task_entrywidth = tk.Entry(self, width=25,font=("Arial",12,))
-        self.task_entrywidth.pack(pady=10)
-        self.nameName = tk.Label(self, text="Please enter the name of your desired function")
-        self.nameName.pack(pady=5)
-        self.task_entryName = tk.Entry(self, width=25,font=("Arial",12,))
-        self.task_entryName.pack(pady=10)
         self.task_button = tk.Button(self, text="add to list",command=lambda: self.sendToList()).pack(pady=10)
         self.task_visButton = tk.Button(self, text="visualize the Functions",command=lambda: self.visualize()).pack(pady=10)
+        self.task_addButton = tk.Button(self, text="+", command=lambda: self.addFuncButton()).pack(pady=10)
     def getFunction(self):
         task = self.task_entryFunc.get().strip()
         return task
@@ -40,3 +24,5 @@ class functionTPFrame(tk.Frame):
     def visualize(self):
         ftp = functionToPlot.functionToPlot()
         ftp.renderGraph(int(self.task_entryRange.get()), self.functions)
+    def addFuncButton(self):
+        self.entryGraphs.append(entriesClass.graphEntries(self))
