@@ -21,3 +21,15 @@ jobs:
     - name: Analysing the code with pylint
       run: |
         pylint $(git ls-files '*.py')
+    - name: using flake8
+      run: |
+        flake8 $(git ls-files '*.py')
+    - name: using bandit
+      run: |
+        bandit $(git ls-files '*.py')
+    - name: using mypy
+      run: |
+        mypy $(git ls-files '*.py')
+    - name: using pip-audit
+      run: |
+        pip-audit $(git ls-files '*.py')
