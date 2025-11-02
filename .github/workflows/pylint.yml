@@ -29,7 +29,7 @@ jobs:
     - name: using bandit
       if: always()
       run: |
-        bandit $(git ls-files '*.py')
+        bandit -r Project1
     - name: using mypy
       if: always()
       run: |
@@ -37,4 +37,4 @@ jobs:
     - name: using pip-audit
       if: always()
       run: |
-        pip-audit $(git ls-files '*.py')
+        pip-audit .
