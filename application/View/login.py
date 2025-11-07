@@ -26,10 +26,10 @@ class loginScreen:
         #for registering ->
         self.registerButton=tk.Button(root,text="Register",width=10,command=self.registerUser)
         self.registerButton.pack(pady=5)
-    def logUser(self):
+    def log_user(self):
         subprocess.Popen(["python", "something.py"])
         pass
-    def registerUser(self):
+    def register_user(self):
         pass
 if __name__ == "__main__":
     root = tk.Tk()

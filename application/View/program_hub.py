@@ -32,7 +32,7 @@ class programHub(tk.Tk):
         frame=self.frames[frame_name]
         frame.tkraise()
     #rendering the frames
-    def createFrames(self):       
+    def create_frames(self):       
         for obj in (Home, addProject, functionTPFrame):
             page_name=obj.__name__
             if page_name == "Home":

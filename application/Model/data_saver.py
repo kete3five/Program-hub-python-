@@ -11,7 +11,7 @@ class dataSaver:
             writer = csv.writer(f, delimiter=";")
             writer.writerow([name, destination])
     def load(self):
-        self.buttons = [] 
+        self.buttons = []
        # if not os.path.exists("data.csv"):
         #    return
         with open("data.csv","r+") as f:
@@ -30,7 +30,7 @@ class dataSaver:
                 else:
                     flag = 0
     #deleting lines from the file
-    def deleteFromFile(self, toDeleteName):
+    def delete_from_file(self, toDeleteName):
         print(toDeleteName)
         with open("data.csv", "w", newline="") as f:
             writer = csv.writer(f, delimiter=";")
@@ -38,12 +38,12 @@ class dataSaver:
                 if i != toDeleteName:
                     writer.writerow([self.buttons[i].name, self.buttons[i].path])
     #redacting the file
-    def changeFile(self, textName, textPath, line):
+    def change_file(self, text_name, text_path, line):
         with open("data.csv", "w", newline="") as f:
             writer = csv.writer(f, delimiter=";")
-            if textName != "" and textPath != "" and line != "":
+            if text_name != "" and text_path != "" and line != "":
                 for i in range(0, len(self.buttons)):
                     if i != line:
                         writer.writerow([self.buttons[i].name, self.buttons[i].path])
                     else:
-                        writer.writerow([textName, textPath])
+                        writer.writerow([text_name, text_path])

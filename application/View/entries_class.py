@@ -27,13 +27,13 @@ class graphEntries:
         self.nameName.grid(row=readyRows, column=6)
         self.task_entryName = tk.Entry(parent, width=15,font=("Arial",12,))
         self.task_entryName.grid(row=readyRows, column=7)
-    def selectColor(self, event):
+    def select_color(self, event):
         print("i am from selecting color")
         self.color = self.comboColor.get()
-    def selectWidth(self, event):
+    def select_width(self, event):
         print("i am from selecting width")
         self.width = self.comboWidth.get()
-    def deleteElements(self):
+    def delete_elements(self):
         self.comboColor.destroy()
         self.comboWidth.destroy()
         self.nameName.destroy()

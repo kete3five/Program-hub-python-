@@ -14,7 +14,7 @@ class functionTPFrame(tk.Frame):
         self.task_addButton = tk.Button(self, text="+", command=lambda: self.addFuncButton()).grid(row=0,column=1)
         self.task_deleteButton = tk.Button(self, text="-", command=lambda: self.deleteFuncButton()).grid(row=0, column=2)
         self.currentRow = 1
-    def getFunction(self):
+    def get_function(self):
         task = self.task_entryFunc.get().strip()
         return task
     # def sendToList(self):
@@ -27,14 +27,14 @@ class functionTPFrame(tk.Frame):
         self.collectInfo()
         ftp = functionToPlot.functionToPlot()
         ftp.renderGraph(10, self.functions)
-    def addFuncButton(self):
+    def add_func_button(self):
         self.entryGraphs.append(entriesClass.graphEntries(self, self.currentRow))
         self.currentRow+=1
-    def deleteFuncButton(self):
+    def delete_func_button(self):
         self.entryGraphs[-1].deleteElements()
         self.entryGraphs.pop()
         self.currentRow-=1
-    def collectInfo(self):
+    def collect_info(self):
         for i in self.entryGraphs:
             print(i.width)
             print(type(i.width))
