@@ -10,7 +10,7 @@ class functionToPlot:
             equation = re.sub(rf"\b{i}\b", f"relations['{i}']", equation)
         equation = equation.replace("x", "x")
         return eval(equation, {"__builtins__": None}, {"x": x, "relations": relations})
-    def renderGraph(self, range, equations):
+    def render_graph(self, range, equations):
         x=np.linspace(0, range, 10000)     
         plt.figure(figsize=(8,5))
         for i in equations:
