@@ -3,14 +3,14 @@ from tkinter import messagebox
 import os
 import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'Model')))
-import dataSaver
+from data_saver import dataSaver
 
 
 class addProject(tk.Frame):
     """adding projects to the project"""
     def __init__(self, controller, parent):
         super().__init__(parent)
-        self.dt = dataSaver.dataSaver()
+        self.dt = dataSaver()
         self.dt.load()
         self.buttons1 = self.dt.buttons
         self.controller=controller
@@ -22,14 +22,14 @@ class addProject(tk.Frame):
         self.pathText = tk.Label(self, text="Path")
         self.pathText.pack(pady=5)
         self.task_entryPath.pack(pady=10)
-        tk.Button(self,text="create a button",command=lambda: self.addTask()).pack(pady=10)
+        tk.Button(self,text="create a button",command=lambda: self.add_task()).pack(pady=10)
         tk.Button(self,text="back",command=lambda: controller.show_frame("Home")).pack(pady=10)
-        tk.Button(self,text="Delete Button", comman=lambda: self.deleteTask()).pack(pady=10)
+        tk.Button(self,text="Delete Button", comman=lambda: self.delete_task()).pack(pady=10)
         self.task_list=tk.Listbox(self,width=40,height=10,selectmode=tk.SINGLE)
-        tk.Button(self, text="change button", command=lambda: self.changeButton()).pack(pady=10)
+        tk.Button(self, text="change button", command=lambda: self.change_button()).pack(pady=10)
         self.task_list.pack(pady=5)
-        self.task_list.bind("<<ListboxSelect>>", self.takeFromList)
-        self.displayTasks()
+        self.task_list.bind("<<ListboxSelect>>", self.take_from_list)
+        self.display_tasks()
     #adding the tasks
     def add_task(self):
         task = self.task_entryName.get().strip()

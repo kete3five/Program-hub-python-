@@ -17,11 +17,11 @@ class graphEntries:
         #color
         self.comboColor = ttk.Combobox(parent, font=("Arial",12), width=10, height=5, values=["green", "blue", "red", "yellow", "orange"])
         self.comboColor.grid(row=readyRows, column=4)
-        self.comboColor.bind('<<ComboboxSelected>>', self.selectColor)
+        self.comboColor.bind('<<ComboboxSelected>>', self.select_color)
         #width
         self.comboWidth = ttk.Combobox(parent, font=("Arial",12), width=10, height=5, values=[5, 6, 7, 8, 9, 10])
         self.comboWidth.grid(row=readyRows, column=5)
-        self.comboWidth.bind('<<ComboboxSelected>>', self.selectWidth)
+        self.comboWidth.bind('<<ComboboxSelected>>', self.select_width)
         #name
         self.nameName = tk.Label(parent, text="Please enter the \n name of your desired function")
         self.nameName.grid(row=readyRows, column=6)
