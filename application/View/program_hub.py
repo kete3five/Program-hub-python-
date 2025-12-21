@@ -11,6 +11,9 @@ import data_saver
 from add_projects import addProject
 from function_TP_frame import functionTPFrame
 from weather_frame import weatherFrame
+from graph_builder import GraphBuilder
+import live_graph
+import threading
 
 class programHub(tk.Tk):
     def __init__(self):
@@ -34,12 +37,14 @@ class programHub(tk.Tk):
         frame.tkraise()
     #rendering the frames
     def create_frames(self):       
-        for obj in (Home, addProject, functionTPFrame, weatherFrame):
+        for obj in (Home, addProject, functionTPFrame, weatherFrame, GraphBuilder, live_graph.live_Graph):
             page_name=obj.__name__
             if page_name == "Home":
                 frame= obj(parent=container,controller=self,buttons=dt.buttons)
             else:
                 frame= obj(parent=container,controller=self)
+              #  if page_name == "live_Graph":
+               #     threading.Thread(target=lambda: frame= obj(parent=container,controller=self, buttons=dt.buttons), daemon=False).start()
             self.frames[page_name]=frame
             frame.grid(row=0,column=0,sticky="nsew")
 
