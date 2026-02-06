@@ -52,3 +52,4 @@ class dataSaver:
                         writer.writerow([self.buttons[i].name, self.buttons[i].path])
                     else:
                         writer.writerow([text_name, text_path])
+                        
