@@ -3,14 +3,17 @@ from button import Button
 import os
 
 class dataSaver:
+    """saves data in a file"""
     def __init__(self):
         self.buttons = []
         self.load()
     def update(self, name, destination):
+        """adds new data"""
         with open("data.csv","a",newline="") as f:
             writer = csv.writer(f, delimiter=";")
             writer.writerow([name, destination])
     def load(self):
+        """loads the data in"""
         self.buttons = []
        # if not os.path.exists("data.csv"):
         #    return
@@ -31,6 +34,7 @@ class dataSaver:
                     flag = 0
     #deleting lines from the file
     def delete_from_file(self, toDeleteName):
+        """deletes data from a file"""
         print(toDeleteName)
         with open("data.csv", "w", newline="") as f:
             writer = csv.writer(f, delimiter=";")
@@ -39,6 +43,7 @@ class dataSaver:
                     writer.writerow([self.buttons[i].name, self.buttons[i].path])
     #redacting the file
     def change_file(self, text_name, text_path, line):
+        """changes the data on a specified line"""
         with open("data.csv", "w", newline="") as f:
             writer = csv.writer(f, delimiter=";")
             if text_name != "" and text_path != "" and line != "":
@@ -47,3 +52,4 @@ class dataSaver:
                         writer.writerow([self.buttons[i].name, self.buttons[i].path])
                     else:
                         writer.writerow([text_name, text_path])
+                        

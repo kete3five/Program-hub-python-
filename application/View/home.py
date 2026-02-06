@@ -14,9 +14,11 @@ class Home(tk.Frame):
         tk.Button(self,text="add project",command=lambda: self.controller.show_frame("addProject")).pack(pady=10)
         tk.Button(self,text="View functions", command=lambda: self.controller.show_frame("functionTPFrame")).pack(pady=10)
         tk.Button(self, text="check the weather", command=lambda: self.controller.show_frame("weatherFrame")).pack(pady=10)
+        tk.Button(self, text="build a graph on data", command=lambda: self.controller.show_frame("GraphBuilder")).pack(pady=10)
+        tk.Button(self, text="check the crypto status", command=lambda: self.controller.show_frame("live_Graph")).pack(pady=10)
 
         global counter
         counter = 1
         for i in buttons:
-            ButtonFactory().buttonBuild(self, i).pack(pady = counter * 2)
+            ButtonFactory().button_build(self, i).pack(pady = counter * 2)
             counter+= 1

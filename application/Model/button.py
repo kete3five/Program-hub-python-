@@ -1,4 +1,5 @@
 class Button:
+    """button class"""
     def __init__(self, name, path):
         """blueprint for button"""
         self.name = name
